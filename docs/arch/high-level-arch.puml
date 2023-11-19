@@ -1,0 +1,39 @@
+@startuml
+package NextJS {
+  component Backend
+  component Frontend
+
+}
+
+package Contracts {
+  component AirvertiseFactory
+  component AirvertiseNFT
+
+}
+
+cloud "AWS Lambda" {
+  component OffchainSigner
+  component AirvertiseNFT
+
+}
+
+Backend -up-> OffchainSigner: requests signature
+Frontend -right-> Backend: requests signature
+Frontend -down-> AirvertiseFactory: claims airdrop
+AirvertiseFactory -> AirvertiseNFT: instantiates
+
+note right of Backend
+  Will hide the OffchainSigner
+  URL and verify Captcha
+end note
+
+note top of Frontend
+  Will prompt a captcha to prevent
+  bots from using the service
+end note
+
+note top of AirvertiseFactory
+  Will verify the offchain signature
+end note
+
+@enduml
