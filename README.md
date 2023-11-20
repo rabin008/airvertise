@@ -1,6 +1,6 @@
 # airvertise-core
 
-This repo contains the smart contracts that are used for the **airvertise** protocol. Explain more... (pending)
+This repo contains the smart contracts that are used for the **airvertise** protocol.
 
 ## Prerequisites
 
